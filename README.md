@@ -8,14 +8,15 @@ The repository is organised as follows:
 
 2. **code/training/** contains scripts that allow to entirely retrain the model, given the hyperparemeters chosen on the validation set.
 
-3. **data/** contains the RBS sequences (DNA encoding) and their RBS strength (target), split across a training, validation and test set. This split is the one used for the main document of the manuscript ("Split0").
+3. **data/** contains the RBS sequences (DNA encoding) and their RBS strength (target), split across training, validation and test sets. This split is the one used for the main document of the manuscript ("Split0").
 
 ## Loading the trained model (code/trained_model/)
 The trained model can be loaded in the jupyter notebook **notebook/load_trained_model.ipynb** and can be used to predict the target values of the sequences in the test set. The weights of the model are available in **weights/**.
 
 ## Training the model (code/training/)
-The repository contains **resnet_model.py** that implements the core architecture of a single resnet model, **run_resnet.py** that trains the model given a set of hyperparameters and **main.sh** that is loads the data, trains the ensemble on five GPUs at a time and saves the prediction results. The hyperparameters are set in the **utils_models.py**. 
-The code takes as input files that contain one DNA sequence per row, no further preprocessing is needed. 
+The repository contains **resnet_model.py** that implements the core architecture of a single resnet model, **run_resnet.py** that trains the model given a set of hyperparameters and **main.sh** that loads the data, trains the ensemble on five GPUs at a time and saves the prediction results. The hyperparameters are set in the script **utils_models.py**. 
+The input file format corresponds to the standard binary file format in Python (.npy format), with one DNA sequence per row  (no further preprocessing is needed). 
+
 
 ## Contact
 laetitia.papaxanthos@bsse.ethz.ch

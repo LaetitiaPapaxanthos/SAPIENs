@@ -82,7 +82,7 @@ mean_and_variance_val_to_save = []
 mean_and_variance_tst_to_save = []
 
 # Build the model. 
-US = UncerEstim(args)  # the varibal a =US.sequence_model was declared before the seed, check if we obtain the same thing
+US = UncerEstim(args)  
 network_input = layers.Input(shape=(sequences_tr.shape[1], 
 			            sequences_tr.shape[2]))
 network_target = layers.Input(shape=(1,))  
