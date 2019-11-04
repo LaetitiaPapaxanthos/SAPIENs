@@ -43,7 +43,6 @@ predictions_mean_val, _ = load_results(models,
 ensemble_mean_val = get_ensemble_mean(predictions_mean_val)
 r2_val = get_scores(ensemble_mean_val, ground_truth_targets_val, data='val')
 best_epoch = early_stopping(r2_val) 
-print(best_epoch)
 
 # Load the results of the ensemble in the test set and compute mean and variance. 
 predictions_mean_tst, predictions_variance_tst = load_results(models, 
