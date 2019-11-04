@@ -32,36 +32,36 @@ class UncerEstim():
         """ Defines the residual block, composed of two convolutional layers"""
         shortcut_in = y  
         
-        shared_Conv1D_1 = layers.Conv1D(
+        conv1D_1 = layers.Conv1D(
 	        n_in, 
 	        kernel_size=kmer_size[0], 
 	        strides=stride, 
 	        kernel_regularizer=regularizers.l2(self.args.weight_decay), 
 	        padding='same')
         BN_1 = layers.BatchNormalization()
-        y_in = shared_Conv1D_1(y)
+        y_in = conv1D_1(y)
         y_in = BN_1(y_in)
         y_in = layers.LeakyReLU()(y_in)
         
-        shared_Conv1D_2 = layers.Conv1D(
+        conv1D_2 = layers.Conv1D(
 		n_out, 
 		kernel_size=kmer_size[1],  
 		strides=1, 
                 kernel_regularizer=regularizers.l2(self.args.weight_decay), 
 		padding='same')
         BN_2 = layers.BatchNormalization()
-        y_in = shared_Conv1D_2(y_in)
+        y_in = conv1D_2(y_in)
         y_in = BN_2(y_in)                   
 
         if shortcut_in.shape[2] != n_out:
-            shared_Conv1D_sh = layers.Conv1D(
+            conv1D_sh = layers.Conv1D(
 		n_out, 
 		kernel_size=1,  
 		strides=stride, 
                 kernel_regularizer=regularizers.l2(self.args.weight_decay), 
 		padding='same')
             BN_sh = layers.BatchNormalization()
-            shortcut_in = shared_Conv1D_sh(shortcut_in)
+            shortcut_in = conv1D_sh(shortcut_in)
             shortcut_in = BN_sh(shortcut_in)              
 
         y_in = layers.add([shortcut_in, y_in])
@@ -86,27 +86,27 @@ class UncerEstim():
         x_in = layers.Flatten()(x_in)
         
 	# Implements the two first fully-connected layers.
-        Dense_alpha = layers.Dense(
+        dense_alpha = layers.Dense(
 		self.args.n_units_mlp, 
 		kernel_regularizer=regularizers.l2(self.args.weight_decay))
         BN_alpha = layers.BatchNormalization() 
-        alpha_hidden = Dense_alpha(x_in)
+        alpha_hidden = dense_alpha(x_in)
         alpha_hidden = BN_alpha(alpha_hidden)
         alpha_hidden = layers.LeakyReLU()(alpha_hidden)
 
-        Dense_beta = layers.Dense(
+        dense_beta = layers.Dense(
 		self.args.n_units_mlp, 
 		kernel_regularizer=regularizers.l2(self.args.weight_decay))
         BN_beta = layers.BatchNormalization()
-        beta_hidden = Dense_beta(x_in)
+        beta_hidden = dense_beta(x_in)
         beta_hidden = BN_beta(beta_hidden)
         beta_hidden = layers.LeakyReLU()(beta_hidden)
         
         # Implements the two fully-connected layers that lead to the two output values.
-        Dense_output_alpha = layers.Dense(1, activation='softplus')
-        Dense_output_beta = layers.Dense(1, activation='softplus') 
-        alpha = Dense_output_alpha(alpha_hidden)
-        beta = Dense_output_beta(beta_hidden)
+        dense_output_alpha = layers.Dense(1, activation='softplus')
+        dense_output_beta = layers.Dense(1, activation='softplus') 
+        alpha = dense_output_alpha(alpha_hidden)
+        beta = dense_output_beta(beta_hidden)
         add_epsilon = layers.Lambda(lambda x: x + eps)
         self.alpha = add_epsilon(alpha)
         self.beta = add_epsilon(beta)
