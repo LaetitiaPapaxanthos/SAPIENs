@@ -6,7 +6,7 @@ The repository is organised as follows:
 
 1. [**code/trained_model**](code/trained_model) contains the weights of the trained model presented in the main document of the aforementioned paper and a Jupyter notebook that loads the weights of the model and computes the main predictive performance results.
 
-2. [**code/training**](code/training) contains scripts that allow to entirely retrain the model, given the hyperparemeters chosen on the validation set.
+2. [**code/training**](code/training) contains scripts that allow to entirely retrain the model, given the hyperparameters chosen on the validation set.
 
 3. [**data**](data) contains the RBS sequences (as DNA strings) and their RBS strength (target), split across training, validation and test sets. This split is the one used for the main document of the manuscript ("Split0").
 
