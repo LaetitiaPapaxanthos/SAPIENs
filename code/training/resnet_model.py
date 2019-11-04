@@ -130,5 +130,3 @@ class UncerEstim():
             return loss
         return loss_function_in
     
-
-    
