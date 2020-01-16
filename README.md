@@ -1,6 +1,6 @@
 # SAPIENs
 
-This repository contains the code of the model **S**equence-**A**ctivity **P**rediction **I**n **E**nsemble of **N**etwork**s** (SAPIENs). The provided code allows to reproduce the prediction results presented in the manuscript "Large-Scale Sequence-Function Mapping and Deep Learning for Prediction of Biological Properties", under review. Further detail about the model can be found in the main document and in the machine learning annex of the manuscript. 
+This repository contains the code of the model **S**equence-**A**ctivity **P**rediction **I**n **E**nsemble of **N**etwork**s** (SAPIENs). The provided code allows to reproduce the prediction results presented in the manuscript "Large-scale DNA-based phenotypic recording and deep learning enable highly accurate sequence-function mapping", under review. Further detail about the model can be found in the main document and in the machine learning annex of the manuscript. 
 
 The repository is organised as follows:
 
