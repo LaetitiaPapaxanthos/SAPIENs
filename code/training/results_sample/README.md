@@ -1,0 +1,8 @@
+These results are obtained when running "bash main.sh" on the data coming from the sampled training set (5000 samples, sequences_train_samples.npy, targets_train_samples.npy), the sampled validation set (5000 samples, sequences_validation_samples.npy, targets_validation_samples.npy) and testing the entire test set (sequences_test.npy, targets_test.npy). All the data is provided in [**data**](../../../data/). 
+The hyperparameters of the model are the ones that were chosen with hyperparameter selection on the validation set, when training on the entire training set (~240,000 samples). The number of epochs was fixed to 100 as the provided training data is of small sample size and to ensure that the model runs in a less than 15 minutes on 5 GPUs in parallel. 
+
+This directory contains:
+1. Ten "commandline_args_modelX_ensY.txt" text files that record the hyperparameters of each model of the ensemble SAPIENs.
+2. A text file "prediction_performance.txt" that contains the prediction results on the test set of SAPIENs, with the epoch chosen on the validation set. The performance obtained on this sampled training set is not representative of the final results as the hyperparameters of the model have been tuned on the entire training set and not on this sample data. 
+3. A text file "predicted_targets.txt" that contains the predicted values for each sample of the test set. 
+4. A text file "predicted_uncertainty.txt" that contains the predicted uncertainty for each sample of the test set. 
