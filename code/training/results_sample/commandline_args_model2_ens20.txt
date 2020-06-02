@@ -1,0 +1,35 @@
+{
+  "input_path": "../../data",
+  "output_path": "../../results",
+  "seed_ensemble": 20,
+  "hyperparameters": 2,
+  "n_evals": 20,
+  "n_epochs_between_eval": 5,
+  "save_model": true,
+  "cuda": 2,
+  "n_blocks_res": [
+    1,
+    1,
+    1
+  ],
+  "n_filters_res": [
+    512,
+    512,
+    512,
+    512,
+    512,
+    512
+  ],
+  "kmer_sizes_res": [
+    10,
+    1,
+    10,
+    1,
+    10,
+    1
+  ],
+  "n_units_mlp": 64,
+  "learning_rate": 0.001,
+  "batch_size": 512,
+  "weight_decay": 1e-06
+}
