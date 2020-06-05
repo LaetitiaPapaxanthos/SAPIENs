@@ -17,6 +17,8 @@ The trained model can be loaded in the Jupyter notebook [**load_trained_model.ip
 The repository contains [**resnet_model.py**](code/training/resnet_model.py) that implements the core architecture of a single resnet model, [**run_resnet.py**](code/training/run_resnet.py) that trains the model given a set of hyperparameters and [**main.sh**](code/training/main.sh) that loads the data, trains the ensemble on five GPUs at a time and saves the prediction results. The hyperparameters are set in the script [**utils_model.py**](code/training/utils_model.py). To train the model, please run *bash main.sh*.
 The input file format corresponds to the standard binary file format in Python (*.npy* format), with one DNA sequence per row (no further preprocessing is needed). 
 
+Please be aware that different parts of this repository obey different licenses. 
+
 ## Dependencies
 
 The code only supports python3 and requires the following packages:
